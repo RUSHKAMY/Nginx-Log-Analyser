@@ -126,7 +126,7 @@ fn user_request() -> std::io::Result<()> {
             Some(pos) => {
                 let cross_after_mark = &line[pos+1..];
                 if let Some(end) = cross_after_mark.find(')') {
-                    let user = &cross_after_mark[..end];
+                    let user = &cross_after_mark[..end+1];
                     let counts = user_request_counts.entry(user.to_string()).or_insert(0);
                     *counts += 1;
                 };
